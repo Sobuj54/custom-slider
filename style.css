@@ -91,16 +91,30 @@ header a {
 }
 
 .carousel .list .item .content button {
-    border: none;
+    border: 1px solid white;
     background-color: #eee;
     font-family: "poppins";
     font-weight: 500;
     letter-spacing: 3px;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .carousel .list .item .content button:nth-child(2) {
     background-color: transparent;
     color: #eee;
+    border: 1px solid #eee;
+}
+
+.carousel .list .item .content button:hover {
+    background-color: goldenrod;
+    color: white;
+    border: 1px solid white;
+}
+
+.carousel .list .item .content button:nth-child(2):hover {
+    background-color: greenyellow;
+    color: black;
     border: 1px solid #eee;
 }
 
@@ -137,4 +151,77 @@ header a {
 
 .thumbnail .item .content .title {
     font-weight: bold;
+}
+
+/* arrows */
+.arrows {
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    transition: 0.5s;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.arrows button:hover {
+    background-color: #eee;
+    color: #555;
+}
+
+/* this will keep the first child at first all the time */
+.carousel .list .item:nth-child(1) {
+    z-index: 1;
+}
+
+/* animation part */
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .description,
+.carousel .list .item:nth-child(1) .buttons {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear forwards;
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.carousel .list .item:nth-child(1) .title {
+    animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .topic {
+    animation-delay: 1.4s;
+}
+
+.carousel .list .item:nth-child(1) .description {
+    animation-delay: 1.6s;
+}
+
+.carousel .list .item:nth-child(1) .buttons {
+    animation-delay: 1.8s;
 }
